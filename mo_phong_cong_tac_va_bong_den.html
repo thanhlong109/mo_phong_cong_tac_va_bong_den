@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        class Electriclamp{
+            turnOff(){
+                this.status=false;
+                document.write("lamp not lighting<br>");
+            }
+            turnOn(){
+                this.status=true;
+                document.write("lamp lighting<br>");
+            }
+        }
+        class SwitchButton{
+            connectToLamp(Electriclamp){
+               this.lamp = Electriclamp;
+            }
+            switchOff(){
+              this.lamp.turnOff();  
+            }
+            switchOn(){
+               this.lamp.turnOn();
+            }
+        }
+        let lamp1 = new Electriclamp();
+        let button = new SwitchButton();
+        button.connectToLamp(lamp1);
+        let count=0;
+        while(count<10){
+            button.switchOn();
+            button.switchOff();
+            count++;
+        }
+    </script>
+</body>
+</html>
